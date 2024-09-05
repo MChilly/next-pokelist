@@ -64,8 +64,14 @@ export default function PokemonDetails({ pokemon }: PokemonDetailsProps) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { name } = context.params as { name: string };
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-  const pokemon = await response.json();
 
+if (!response.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const pokemon = await response.json();
   return {
     props: {
       pokemon,
