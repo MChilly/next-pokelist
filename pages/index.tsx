@@ -53,10 +53,10 @@ export default function Home() {
     };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 flex flex-col items-center">
       {/* Pokemon Logo */}
-      <div className="flex justify-between items-center p-8">
-        <h1>
+      <div className="flex flex-col items-center mb-4">
+        <h1 className="flex justify-center p-8">
           <img src={`./International_Pokémon_logo.svg`} alt="Pokémon Logo"/>
         </h1>
 
@@ -67,7 +67,7 @@ export default function Home() {
             value={searchTerm} // Use searchTerm state
             onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
             placeholder="Search for a Pokémon"
-            className="px-4 py-2 border rounded mr-2"
+            className="px-10 py-2 border rounded mr-2"
           />
           <button
             type="submit"
@@ -85,7 +85,6 @@ export default function Home() {
             <th className="py-2 text-2xl">Pokemon ID</th>
             <th className="py-2 text-2xl">Pokemon Image</th>
             <th className="py-2 text-2xl">Pokemon Name</th>
-            {/* <th className="py-2 text-2xl">Pokemon Details</th> */}
           </tr>
         </thead>
         <tbody>
@@ -101,7 +100,7 @@ export default function Home() {
                 />
                 </Link>
               </td>
-              <td className="py-2 text-center capitalize">
+              <td className="py-2 text-center font-semibold capitalize">
                 <Link href={`/details/${pokemon.name}`} className="hover:text-yellow-500">
                   {pokemon.name}
                 </Link>
